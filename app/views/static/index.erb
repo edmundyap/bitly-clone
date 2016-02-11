@@ -1,2 +1,57 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+
+<h1 id='title' style="text-align:center; font-family:verdana; font-size:250%;">Welcome to Shortify</h1>
+<!-- <h1><%= @title%> </h1> -->
+
+
+<form id="input_URL" action="/urls" method="post">
+    Enter URL:
+    <input type ="text" name="long_url">
+
+    <input type="submit" value="Shortify-It">
+</form>
+
+
+
+
+<body>
+<!--   <div id="error"></div> -->
+  <table id="abc">
+    <tr>
+      <th>Original</th>
+      <th>Shortened</th>
+      <th>Delete</th>
+      <th>Click-Count</th>
+    </tr>
+    <% @all_url.each do |url| %>
+      <tr>
+        <td>
+          <%= url.long_url %>
+        </td>
+        
+        <td>
+          <form id="shortener" action="<%= url.short_url%>" method="get" >
+            <input type="submit" value=<%= url.short_url%> >
+          </form>
+        </td>
+
+        <td>
+          <form id="delete" action="/<%=url.id%>/delete" method="post" >
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+
+        <td>
+           <%=url.click_count%>
+        </td>
+
+      </tr>
+    <% end %>
+  </table>
+</body>
+
+
+
+
+
+
+

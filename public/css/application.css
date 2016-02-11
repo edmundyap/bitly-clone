@@ -1,0 +1,14 @@
+
+
+form, th, td {
+    text-align: center;
+    padding: 4px;
+}
+
+tr:hover {background-color: #A196CF}
+
+
+body {
+   background-image: url("/img/scene.jpg");
+   background-repeat: no-repeat;
+}
